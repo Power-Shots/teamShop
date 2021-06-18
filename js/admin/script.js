@@ -10,10 +10,11 @@ let productsList = [
     }
 ];
 
+function createModalWindow(){
+    console.log(1)
+}
 
 function print(){
-    let adminBlock = document.createElement('div');
-    adminBlock.classList.add('admin-block');
     let content = productsList.map(item => `
         <div class="item" data-id="${item.id}">
             <div>${item.id}</div>
@@ -35,24 +36,28 @@ function print(){
         </div>
     `);
 
-    adminBlock.innerHTML = `
-            <h2>Admin page</h2>
-            <div class="products-list">
-                <div class"item">
-                    <div>id</div>
-                    <div>Title</div>
-                    <div>Icon</div>
-                    <div>Country</div>
-                    <div>Quantity</div>
-                    <div>Price</div>
-                    <div>Edit</div>
-                    <div>Delete</div>
-                </div> 
-                ${content.join('')}
+    container.innerHTML = `
+            <div class="admin-block">
+                <h2>Admin page</h2>
+                <div class="products-list">
+                    <div class="item">
+                        <div>id</div>
+                        <div>Title</div>
+                        <div>Icon</div>
+                        <div>Country</div>
+                        <div>Quantity</div>
+                        <div>Price</div>
+                        <div>Edit</div>
+                        <div>Delete</div>
+                    </div> 
+                    ${content.join('')}
+                </div>
+                <button class="add-new-product-btn">Add product</button>
             </div>
-            <button class="add-new-product">Add product</button>
+
     `;
-    container.innerHTML = adminBlock.outerHTML;
+    let addProductBtn = container.querySelector('.add-new-product-btn');
+    addProductBtn.addEventListener('click', createModalWindow);
 }
 
 function start(){

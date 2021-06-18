@@ -77,3 +77,29 @@ header .wrap nav ul .header-link-active {
     padding-top: 20px;
     text-align: center;
 }
+
+.admin-block .add-new-product-btn {
+    margin-top: 25px;
+    width: 100%;
+    font-size: 25px;
+    height: 40px;
+}
+
+.admin-block .products-list .item {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px 1fr 1fr 1fr 100px 100px;
+    grid-auto-rows: 50px;
+    /* align-items: center; */    
+}
+
+.admin-block .products-list .item > div {
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-block .products-list .item button {
+    width: 90%;
+    height: 80%;
+}
