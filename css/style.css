@@ -72,3 +72,8 @@ header .wrap nav ul .header-link:hover {
 header .wrap nav ul .header-link-active {
     background-color: rgb(87, 15, 15);
 }
+
+.admin-block h2 {
+    padding-top: 20px;
+    text-align: center;
+}
