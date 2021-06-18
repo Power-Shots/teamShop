@@ -3,15 +3,69 @@ let productsList = [
     {
         id: 0,
         title: 'Процессор',
-        icon: '',
+        icon: 'img/GPU.png',
         country: 'CША',
         quantity: 20,
         price: 10000,
     }
 ];
 
-function createModalWindow(){
+function closeModalWindow(){
     console.log(1)
+    let modalDiv = document.querySelector('.modal-window')
+    modalDiv.remove()
+}
+
+function createForm(el){
+    if(el.closest('.add-new-product-btn')){
+        console.log('add')
+        let block = `
+            <h3>Add product</h3>
+            <form>
+                <p>
+                    <label>Title</label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label>Icon url</label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label>Country</label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label>Quantity</label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label>Price</label>
+                    <input type="text">
+                </p>
+            </form>
+        `;
+        return block;
+
+    }
+    else if(el.closest('.edit')){
+        console.log('edit')
+    }
+}
+
+function createModalWindow(){
+    let adminBlock = container.querySelector('.admin-block');
+    let modalDiv = document.createElement('div');
+    let cover = null;
+    modalDiv.classList.add('modal-window');
+    modalDiv.innerHTML = `
+        <div class="cover"></div>
+        <div class="modal">
+            ${createForm(this)}
+        </div>
+    `
+    document.body.prepend(modalDiv);
+    cover = modalDiv.querySelector('.cover')
+    cover.addEventListener('click', closeModalWindow)
 }
 
 function print(){
@@ -57,7 +111,9 @@ function print(){
 
     `;
     let addProductBtn = container.querySelector('.add-new-product-btn');
+    let editBtn = container.querySelector('.edit');
     addProductBtn.addEventListener('click', createModalWindow);
+    editBtn.addEventListener('click', createModalWindow)
 }
 
 function start(){
