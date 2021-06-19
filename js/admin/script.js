@@ -25,11 +25,11 @@ function verification(e){
         let objKey = inputs[i].getAttribute('data-objKey');
         inputs[i].innerHTML = inputs[i].innerHTML.trim();
         if(regEx[typeVerification].test(inputs[i].value) === false){
-            console.log(inputs[i].value+' Ошибка')
+            console.log(`В поле под номером ${i+1} Ошибка. ${regEx[typeVerification]}`)
             verificationStatus = false;
         }
         if(typeVerification === 'number' && inputs[i].value === "0"){
-            console.log(inputs[i].value+' Ошибка');
+            console.log(inputs[i].value+' Ошибка количество или цена не может быть 0');
             verificationStatus = false;
         }
         newProduct[objKey] = inputs[i].value;
