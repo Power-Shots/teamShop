@@ -216,3 +216,12 @@ main #products .item-product .icon-product img{
     object-fit: contain;
 }
 /*main end*/
+
+/*basket*/
+.basket h2{
+    text-align: center;
+}
+
+.basket .basket-table{
+    border-collapse: collapse;
+}
