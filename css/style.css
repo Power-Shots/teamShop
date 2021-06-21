@@ -225,3 +225,8 @@ main #products .item-product .icon-product img{
 .basket .basket-table{
     border-collapse: collapse;
 }
+
+.basket .basket-table td{
+    width: 200px;
+    height: 50px;
+}
