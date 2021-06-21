@@ -30,6 +30,7 @@ function buyBasket(){
 function outputBasket(){
     let data = localStorage.getItem('Basket');
     let basket = JSON.parse(data);
+    if(basket == null || basket.length < 0) return;
     let table = document.querySelector('.basket-table');
     let basketContainer = document.querySelector('.basket');
     console.log(basket);

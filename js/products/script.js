@@ -1,71 +1,71 @@
 //name local productsData
 //ggggg
-const products1 = [
-    {
-        id: 0,
-        title: 'Процессор',
-        icon: '1.png',
-        country: 'CША',
-        quantity: 20,
-        price: 10000,
-    },
-    {
-        id: 1,
-        title: 'Клавиатура',
-        icon: '2.png',
-        country: 'CША',
-        quantity: 10,
-        price: 500,
-    },
-    {
-        id: 2,
-        title: 'Корпус',
-        icon: '3.png',
-        country: 'CША',
-        quantity: 20,
-        price: 1000,
-    },
-    {
-        id: 3,
-        title: 'Кулер',
-        icon: '4.png',
-        country: 'CША',
-        quantity: 25,
-        price: 100,
-    },
-    {
-        id: 4,
-        title: 'Блок питания',
-        icon: '5.png',
-        country: 'CША',
-        quantity: 5,
-        price: 700,
-    },
-    {
-        id: 5,
-        title: 'Память',
-        icon: '6.png',
-        country: 'CША',
-        quantity: 20,
-        price: 900,
-    },
-    {
-        id: 6,
-        title: 'Видео карта',
-        icon: '7.png',
-        country: 'CША',
-        quantity: 2,
-        price: 15000,
-    },
-    {
-        id: 7,
-        title: 'Жесткий диск',
-        icon: '8.png',
-        country: 'CША',
-        quantity: 16,
-        price: 300,
-    },
-];
+// const products1 = [
+//     {
+//         id: 0,
+//         title: 'Процессор',
+//         icon: '1.png',
+//         country: 'CША',
+//         quantity: 20,
+//         price: 10000,
+//     },
+//     {
+//         id: 1,
+//         title: 'Клавиатура',
+//         icon: '2.png',
+//         country: 'CША',
+//         quantity: 10,
+//         price: 500,
+//     },
+//     {
+//         id: 2,
+//         title: 'Корпус',
+//         icon: '3.png',
+//         country: 'CША',
+//         quantity: 20,
+//         price: 1000,
+//     },
+//     {
+//         id: 3,
+//         title: 'Кулер',
+//         icon: '4.png',
+//         country: 'CША',
+//         quantity: 25,
+//         price: 100,
+//     },
+//     {
+//         id: 4,
+//         title: 'Блок питания',
+//         icon: '5.png',
+//         country: 'CША',
+//         quantity: 5,
+//         price: 700,
+//     },
+//     {
+//         id: 5,
+//         title: 'Память',
+//         icon: '6.png',
+//         country: 'CША',
+//         quantity: 20,
+//         price: 900,
+//     },
+//     {
+//         id: 6,
+//         title: 'Видео карта',
+//         icon: '7.png',
+//         country: 'CША',
+//         quantity: 2,
+//         price: 15000,
+//     },
+//     {
+//         id: 7,
+//         title: 'Жесткий диск',
+//         icon: '8.png',
+//         country: 'CША',
+//         quantity: 16,
+//         price: 300,
+//     },
+// ];
 const container = document.querySelector('#container');
 const basketLink = document.querySelector('#basket');
 // const products1 = document.querySelector('#products');
@@ -79,10 +79,15 @@ window.addEventListener('load' , init);
 
 function init(){
     getLocalStorageData();
+    if(products == null || products.length < 1){
+        container.innerHTML = `
+            <h3>No Products</h3>
+        `;
+        return;
+    }
     createContent(products);
     setOptionsInputs();
     setEventBtn();
-    console.log(products);
 }
 
 
@@ -91,7 +96,7 @@ function init(){
 
 
 function getLocalStorageData(){
-    localStorage.setItem('Products', JSON.stringify(products1));
+    // localStorage.setItem('Products', JSON.stringify(products1));
     //имя локал productsData
     let dataProducts = localStorage.getItem('productsData');
     dataProducts = JSON.parse(dataProducts);
